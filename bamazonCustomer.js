@@ -21,7 +21,7 @@ connection.query("SELECT * FROM products", function(err, res){
 
   console.log("Check out our selection...\n")
   console.log("  ID  |          Product Name          |       Department Name       |     Price    |   In Stock")
-  console.log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+  console.log("________________________________________________________________________________________________")
   
   for(let i = 0; i < res.length; i++){
 
