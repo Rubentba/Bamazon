@@ -1,5 +1,6 @@
-const mysql = require('mysql');
-const inquirer = require('inquirer');
+const mysql = require('mysql'),
+      inquirer = require('inquirer'),
+      pad = require('pad')
 
 var connection = mysql.createConnection({
     host:"localhost",
@@ -19,7 +20,7 @@ connection.query("SELECT * FROM products", function(err, res){
   if(err) throw err
 
   console.log("Check out our selection...\n")
-  console.log("  ID  |      Product Name      |  Department Name  |   Price  | In Stock")
+  console.log("  ID  |          Product Name          |       Department Name       |     Price    |   In Stock")
   console.log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
   
   for(let i = 0; i < res.length; i++){
@@ -30,7 +31,11 @@ connection.query("SELECT * FROM products", function(err, res){
         price = "$" + res[i].price,
         quantity = res[i].stock_quantity
 
-    console.log(itemId + "|" + productName + "|" + departmentName + "|" + price + "|" + quantity)
+    console.log((pad(3, " " + itemId) + pad(" " , 3))
+                 + "|" + (pad(23, " " + productName) + pad(" ", 9)) 
+                 + "|" + (pad(21, " " + departmentName) + pad(" ", 8)) 
+                 + "|" + (pad(9, " " + price) + pad(" ", 5)) 
+                 + "|" + pad(8, " " + quantity))
   }
 })
 
