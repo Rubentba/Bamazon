@@ -11,17 +11,17 @@ var connection = mysql.createConnection({
 })
 
 connection.connect(function(err) {
-    console.log("Connected as id: " + connection.threadId);
-    // start();
+    console.log(`Connected as id: ${connection.threadId}\n`);
+    start();
 })
 
 connection.query("SELECT * FROM products", function(err, res){
       
   if(err) throw err
 
-  console.log("Check out our selection...\n")
+  console.log("\n\nCheck out our selection...\n")
   console.log("  ID  |          Product Name          |       Department Name       |     Price    |   In Stock")
-  console.log("________________________________________________________________________________________________")
+  console.log("________________________________________________________________________________________________\n")
   
   for(let i = 0; i < res.length; i++){
 
@@ -39,16 +39,15 @@ connection.query("SELECT * FROM products", function(err, res){
   }
 })
 
-// var start = function() {
-//     inquirer.prompt({
-//         name:"selectRole",
-//         type:"rawlist",
-//         message: "Choose you role.",
-//         choices: ["Customer"]
-//     }).then(function(answer){
-//         if(answer.selectRole.toUpperCase() == "Customer") {
-//             // goCustomer();
-//         }
-    
-//     })
-// }
+var start = function() {
+    inquirer.prompt([
+    {
+        name:"selectProduct",
+        type:"input",
+        message: "Select the ID of the product you would like to purchase.",
+    },{
+        name:"purchaseUnit",
+        type:"input",
+        message: "Enter amount of units you would like to purchase.",
+    }])
+}
