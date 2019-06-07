@@ -8,6 +8,7 @@
 - Javascript
 - MySQL
 - Inquirer npm package
+- Pad npm package
 
 ## Links
 - Github repository for this project: https://github.com/Rubentba/Bamazon
