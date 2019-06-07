@@ -3,6 +3,9 @@
 ## Description
 - An Amazon-like storefront utilizing MySQL. The app will take in orders from customers and deplete stock from the store's inventory.
 
+## App In Use
+- https://drive.google.com/file/d/1eQ3CkM9QxhxIEblLQw33LFPUFc0qlnhj/view?usp=sharing
+
 ## Technologies Used
 - Node.js
 - MySQL
