@@ -5,7 +5,6 @@
 
 ## Technologies Used
 - Node.js
-- Javascript
 - MySQL
 - Inquirer npm package
 - Pad npm package
